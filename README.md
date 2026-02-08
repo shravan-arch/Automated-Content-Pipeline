@@ -17,18 +17,40 @@ The system is built to handle large documents (10,000+ words) through hierarchic
 - Clean academic and production-ready design
 
 ## Project Structure
-Automated/
+Automated_Content_Pipeline/
 │
-├── app.py # Streamlit frontend
-├── run.py # CLI entry point
-├── summarizer.py # Core summarization logic
+├── app.py
+│ └── Streamlit frontend for interactive summarization
+│
+├── run.py
+│ └── CLI entry point for batch processing
+│
+├── summarizer.py
+│ └── Core summarization logic (shared backend)
+│
 ├── requirements.txt
+│ └── Python dependencies
+│
 ├── README.md
+│ └── Project overview and usage instructions
 │
-├── input/ # Input documents
-├── output/ # Generated summaries
+├── input/
+│ └── Input documents (TXT, PDF, DOCX)
 │
-└── docs/ # Project documentation
+├── output/
+│ └── Generated summaries
+│
+└── docs/
+├── 01_Abstract.md
+├── 02_Introduction_and_Problem.md
+├── 03_Objectives_and_Scope.md
+├── 04_System_Architecture.md
+├── 05_Design_Methodology.md
+├── 06_Implementation_Details.md
+├── 07_Working_Flow_and_DFD.md
+├── 08_Unique_Features.md
+├── 09_Limitations_and_Future_Enhancements.md
+├── 10_Conclusion.md
 
 ## System Overview
 
