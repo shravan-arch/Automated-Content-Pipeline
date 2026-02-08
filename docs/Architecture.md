@@ -33,4 +33,34 @@ Final Summary Generation
 ↓
 Output File
 
+# System Interaction Diagram
+
+## Client–Edge–AI Communication Flow
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant B as Browser<br/>(React SPA)
+    participant E as Edge Function<br/>(/functions/v1/chat)
+    participant G as AI Gateway<br/>(Gemini 3 Flash)
+
+    %% Client to Edge
+    B->>E: POST /chat
+    activate E
+
+    %% Edge to AI Gateway
+    E->>G: POST /v1/chat/completions
+    activate G
+
+    %% AI streaming response
+    G-->>E: HTTPS Response (Streamed Tokens)
+    deactivate G
+
+    %% SSE stream back to browser
+    E-->>B: SSE Stream (Real-time tokens)
+    deactivate E
+
 This layered architecture ensures efficient processing and easy extensibility.
+
+
