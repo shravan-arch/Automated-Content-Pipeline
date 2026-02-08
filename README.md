@@ -32,7 +32,7 @@ Both CLI and Streamlit interfaces invoke the same backend pipeline, ensuring con
 ## Installation
 
 ### Prerequisites
-- Python 3.10 or higher
+- Python 3.9 or higher
 - Google Gemini API key
 
 ### Install Dependencies
