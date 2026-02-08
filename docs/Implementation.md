@@ -1,14 +1,18 @@
-# Implementation and Unique Feature
+# Implementation Details
 
-The Relevance Agent is implemented in Python using the Google Gemini API for text generation. Python libraries are used for document parsing and text handling.
+## Backend Implementation
 
-## Importance-Based Summarization (Unique Feature)
+The backend is implemented in Python and includes:
+- Text extraction using `pypdf` and `python-docx`
+- Word-based chunking for large documents
+- Chunk-wise summarization using the Gemini API
+- Aggregation of partial summaries into a final coherent output
 
-Unlike traditional summarization systems, this project introduces an adaptive importance-based mechanism.
+## Frontend Implementation
 
-- Each document chunk is classified as High, Medium, or Low importance
-- Summary length is dynamically adjusted based on importance
-- Critical concepts receive deeper summaries
-- Less relevant sections are compressed
+The optional Streamlit frontend allows users to:
+- Upload documents through a browser
+- Trigger summarization interactively
+- View and download generated summaries
 
-This feature enhances summary relevance without increasing API usage, making the system both efficient and intelligent.
+Both CLI and frontend interfaces invoke the same backend function, ensuring consistency and avoiding code duplication.
