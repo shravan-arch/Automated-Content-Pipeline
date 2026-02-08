@@ -56,6 +56,3 @@ Detailed architecture and flow diagrams are available in the `docs/` directory.
 - Python 3.9 or higher
 - Google Gemini API key
 
-### Install Dependencies
-```bash
-pip install -r requirements.txt
