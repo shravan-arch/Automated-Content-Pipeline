@@ -1,19 +1,19 @@
 # Design Methodology
 
-The system is designed using principles of simplicity, efficiency, and scalability.
+The system is designed using principles of modularity, scalability, and responsible AI usage.
 
-## Key Design Principles
+## Design Principles
 
-- Hierarchical Processing  
-  Large documents are processed in chunks to manage token limits.
+- **Modularity**  
+  Core summarization logic is isolated and reused across interfaces.
 
-- Importance Awareness  
-  Core sections receive more detailed summaries than supplementary content.
+- **Hierarchical Processing**  
+  Large documents are divided into smaller chunks to avoid token overflow.
 
-- Quota Safety  
-  Controlled API calls and delays prevent rate-limit violations.
+- **Quota Safety**  
+  Controlled API calls ensure compatibility with free-tier limits.
 
-- Modularity  
-  Each system component performs a specific function, enabling easy maintenance.
+- **Extensibility**  
+  New features or interfaces can be added without altering core logic.
 
-This design approach mimics human reading behavior and ensures reliable performance under constrained resources.
+The Streamlit frontend functions strictly as a presentation layer and does not interfere with backend processing.
