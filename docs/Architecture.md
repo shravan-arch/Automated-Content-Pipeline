@@ -1,58 +1,27 @@
 # System Architecture
 
-The Relevance Agent follows a modular pipeline architecture designed for scalability and maintainability.
+The Relevance Agent follows a layered and modular architecture designed to ensure scalability, maintainability, and separation of concerns.
 
-## Architectural Components
+## Architectural Layers
 
-- Input Handling  
-  Accepts documents from local storage or external file paths.
+- **User Layer**
+  - Command-line user
+  - Optional Streamlit web interface user
 
-- Text Extraction  
-  Extracts text from supported formats including TXT, PDF, and DOCX.
+- **Presentation Layer**
+  - Streamlit frontend (optional)
+  - Handles file upload and output visualization
 
-- Chunking  
-  Divides large documents into smaller, manageable segments to avoid token overflow.
+- **Application Layer**
+  - Python scripts coordinating execution
+  - Entry points for CLI and web interface
 
-- Importance-Based Summarization  
-  Each chunk is analyzed for relevance and summarized accordingly.
+- **Core Processing Layer**
+  - Text extraction
+  - Chunking engine
+  - Summarization logic
 
-- Final Summary Generation  
-  Partial summaries are merged to produce a coherent and concise final output.
+- **AI Integration Layer**
+  - Google Gemini API for content generation
 
-Document Input
-↓
-Text Extraction
-↓
-Chunking Engine
-↓
-Importance-Based Summarization
-↓
-Partial Summaries
-↓
-Final Summary Generation
-↓
-Output File
-
-# System Interaction Diagram
-
-## Client to AI Communication Flow
-
-```mermaid
-sequenceDiagram
-    autonumber
-
-    participant Browser as Browser (Client)
-    participant Edge as Edge Function
-    participant AI as AI Gateway
-
-    Browser->>Edge: POST /chat
-    activate Edge
-
-    Edge->>AI: POST /v1/chat/completions
-    activate AI
-
-    AI-->>Edge: HTTPS streamed response
-    deactivate AI
-
-    Edge-->>Browser: SSE stream
-    deactivate Edge
+This architecture allows multiple interaction modes while maintaining a single, shared backend pipeline.
