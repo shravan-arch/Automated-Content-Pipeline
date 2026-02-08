@@ -3,6 +3,14 @@ AI-powered document summarization system that processes large text documents usi
 
 A key highlight of this project is **importance-based summarization**, where critical sections of a document receive more detailed summaries than less important sections. This approach improves relevance and mimics human reading behavior without increasing API usage.
 
+## System Overview
+
+The system processes documents through a structured pipeline. Large documents are divided into smaller chunks to avoid token overflow. Each chunk is evaluated for importance and summarized accordingly. Partial summaries are then merged to generate a final coherent summary.
+
+This approach ensures:
+- Efficient handling of large inputs  
+- Preservation of critical information  
+- Controlled API usage  
 
 ## Key Features
 
@@ -12,7 +20,6 @@ A key highlight of this project is **importance-based summarization**, where cri
 - Hierarchical chunk-based processing
 - Quota-safe and free-tier friendly design
 - Supports external file paths from local storage
-
 
 ## How It Works
 
