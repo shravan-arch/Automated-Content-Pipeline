@@ -28,3 +28,34 @@ This approach ensures:
 3. Large documents are divided into smaller chunks.
 4. Each chunk is analyzed for importance and summarized accordingly.
 5. Partial summaries are merged to generate a final coherent summary.
+   
+## Architecture at a Glance
+
+Document Input
+↓
+Text Extraction
+↓
+Chunking Engine
+↓
+Importance-Based Summarization
+↓
+Partial Summaries
+↓
+Final Summary Generation
+↓
+Output File
+
+
+Detailed architecture and flow diagrams are available in the `docs/` directory.
+
+---
+
+## Installation
+
+### Prerequisites
+- Python 3.9 or higher
+- Google Gemini API key
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
