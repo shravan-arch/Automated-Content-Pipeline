@@ -1,58 +1,77 @@
-# Automated-Content-Pipeline
-AI-powered document summarization system that processes large text documents using importance-based approach. It supports multiple file formats and generates concise, relevant summaries while operating safely within free-tier API limits.
+# Relevance Agent
 
-A key highlight of this project is **importance-based summarization**, where critical sections of a document receive more detailed summaries than less important sections. This approach improves relevance and mimics human reading behavior without increasing API usage.
+Relevance Agent is an AI-powered document summarization system designed to efficiently process large textual documents using Google Gemini. The project supports both **command-line (CLI)** execution and an **optional Streamlit-based web interface**, enabling flexible and user-friendly interaction while reusing a single backend summarization engine.
 
-## System Overview
-
-The system processes documents through a structured pipeline. Large documents are divided into smaller chunks to avoid token overflow. Each chunk is evaluated for importance and summarized accordingly. Partial summaries are then merged to generate a final coherent summary.
-
-This approach ensures:
-- Efficient handling of large inputs  
-- Preservation of critical information  
-- Controlled API usage  
+The system is built to handle large documents (10,000+ words) through hierarchical chunk-based processing and quota-safe API usage, making it suitable for academic projects, research assistance, and personal productivity tools.
 
 ## Key Features
 
 - Supports large documents (10,000+ words)
-- Accepts TXT, PDF, and DOCX file formats
-- Importance-based adaptive summarization (unique feature)
-- Hierarchical chunk-based processing
-- Quota-safe and free-tier friendly design
-- Supports external file paths from local storage
+- Accepts TXT, PDF, and DOCX formats
+- Dual interface support:
+  - CLI (command-line execution)
+  - Web UI (Streamlit frontend)
+- Shared backend summarization engine
+- Modular and extensible architecture
+- Quota-safe interaction with Gemini API
+- Clean academic and production-ready design
 
-## How It Works
+## Project Structure
+Automated/
+│
+├── app.py # Streamlit frontend
+├── run.py # CLI entry point
+├── summarizer.py # Core summarization logic
+├── requirements.txt
+├── README.md
+│
+├── input/ # Input documents
+├── output/ # Generated summaries
+│
+└── docs/ # Project documentation
 
-1. The user provides a document from local storage.
-2. The system extracts text based on file type.
-3. Large documents are divided into smaller chunks.
-4. Each chunk is analyzed for importance and summarized accordingly.
-5. Partial summaries are merged to generate a final coherent summary.
-   
-## Architecture at a Glance
+## System Overview
 
-Document Input
-↓
-Text Extraction
-↓
-Chunking Engine
-↓
-Importance-Based Summarization
-↓
-Partial Summaries
-↓
-Final Summary Generation
-↓
-Output File
+The Agent follows a modular pipeline:
 
+1. Document input (local file or upload)
+2. Text extraction based on file type
+3. Chunking of large documents
+4. Chunk-wise summarization using Gemini
+5. Merging partial summaries
+6. Final summary generation and output
 
-Detailed architecture and flow diagrams are available in the `docs/` directory.
-
----
+Both CLI and Streamlit interfaces invoke the same backend pipeline, ensuring consistency and avoiding code duplication.
 
 ## Installation
 
 ### Prerequisites
-- Python 3.9 or higher
+- Python 3.10 or higher
 - Google Gemini API key
 
+### Install Dependencies
+pip install -r requirements.txt
+
+## Set API Key (Windows)
+setx GEMINI_API_KEY "YOUR_API_KEY"
+
+## Usage
+CLI Mode
+Run the summarizer from the terminal:
+python run.py (path/to/document.pdf)
+
+## Web Interface (Streamlit)
+Launch the Streamlit application:
+streamlit run app.py
+
+# Documentation
+Detailed project documentation is available in the docs/ directory, including:
+
+- Abstract and Introduction
+- Objectives and Scope
+- System Architecture
+- Design Methodology
+- Implementation Details
+- Working Flow and DFD
+- Unique Features
+- Limitations and Future Enhancements
